@@ -1,3 +1,11 @@
+const nightMode = document.querySelector(".night-mode");
+const humanScore = document.querySelector(".human");
+const computerScore = document.querySelector(".computer");
+const resetButton = document.querySelector(".reset");
+const rockButton = document.querySelector(".rock-button");
+const paperButton = document.querySelector(".paper-button");
+const scissorsButton = document.querySelector(".scissors-button");
+const linkButton = document.querySelector(".link-button");
 let playerScore = 0;
 
 function randomNumberGenerator() {
@@ -25,18 +33,19 @@ function computerResult() {
 }
 
 
+
+
 function checkInputs() {
 
     let result;
-    userGuess = prompt();
 
-    if(userGuess === "rock") {
+    if(userGuess === 1) {
         result = 1;
         }
-    else if(userGuess === "paper") {
+    else if(userGuess === 2) {
         result = 2;
     }
-    else if(userGuess === "scissors") {
+    else if(userGuess === 3) {
         result = 3;
     } 
 
