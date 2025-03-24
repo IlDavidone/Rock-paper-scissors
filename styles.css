@@ -7,13 +7,13 @@ h1 {
     text-align: center;
     flex: 1 0 60%;
     margin-left: 10vh;
-    margin-bottom: 15vh;
+    margin-bottom: 12vh;
 }
 
 .header  {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: last baseline;
 }
 
 .night-mode img {
@@ -25,12 +25,29 @@ h1 {
 .score {
     display: flex;
     justify-content: space-evenly;
-    margin: 0 10vh 0 10vh;
+    margin: 0 15vh 0 15vh;
     margin-bottom: 4vh;
 }
 
+.human {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.computer {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.info {
+    flex: 0 1 40vh;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 2vh 0 2vh;
+}
+
 .content {
-    margin: 0 10vh 0 10vh;
+    margin: 0 9vh 0 9vh;
 }
 
 .game-area {
