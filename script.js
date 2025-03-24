@@ -1,16 +1,35 @@
 const nightMode = document.querySelector(".night-mode");
 const humanScore = document.querySelector(".human");
 const computerScore = document.querySelector(".computer");
-const resetButton = document.querySelector(".reset");
+const infoButton = document.querySelector(".info");
 const rockButton = document.querySelector(".rock-button");
 const paperButton = document.querySelector(".paper-button");
 const scissorsButton = document.querySelector(".scissors-button");
 const linkButton = document.querySelector(".link-button");
+
 let playerScore = 0;
+let computerScoreGame = 0;
+let userGuess;
+
+rockButton.addEventListener("click", () => {
+    userGuess = 1;
+    comparation();
+});
+
+paperButton.addEventListener("click", () => {
+    userGuess = 2;
+    comparation();
+});
+
+scissorsButton.addEventListener("click", () => {
+    userGuess = 3;
+    comparation();
+});
 
 function randomNumberGenerator() {
     return Math.random();
 }
+
 
 //1: rock 2: paper 3: scissors
 function computerResult() {
@@ -33,8 +52,7 @@ function computerResult() {
 }
 
 
-
-
+//the same rules of compuetResult applies here (number-wise)
 function checkInputs() {
 
     let result;
@@ -53,13 +71,22 @@ function checkInputs() {
 
 }
 
+
 function comparation() {
 
     user = checkInputs();
     computer = computerResult();
 
     if(user === computer)  {
-        console.log("it's a tie!")
+        if(user == 1){
+            infoButton.textContent = "You both selected Rock! Tie!"
+        }
+        else if(user == 2){
+            infoButton.textContent = "You both selected Paper! Tie!"
+        }
+        else{
+            infoButton.textContent = "You both selected Scissors! Tie!"
+        }
     }
     else if (user === 1 && computer === 3) {
         console.log("you won!");
@@ -83,5 +110,3 @@ function comparation() {
     console.log("test");
 
 }
-
-comparation();

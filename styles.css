@@ -7,6 +7,7 @@ h1 {
     text-align: center;
     flex: 1 0 60%;
     margin-left: 10vh;
+    margin-bottom: 15vh;
 }
 
 .header  {
@@ -24,11 +25,8 @@ h1 {
 .score {
     display: flex;
     justify-content: space-evenly;
+    margin: 0 10vh 0 10vh;
     margin-bottom: 4vh;
-}
-
-.score div {
-    background-color: black;
 }
 
 .content {
@@ -40,14 +38,17 @@ h1 {
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 3vh;
+    padding: 3vh 2vh 3vh 2vh;
 }
 
 .game-area button {
     background-color: white;
+    border-radius: 2vh;
+    border: 10px solid black;
 }
 
 
 .game-area img {
-    height: 15vh;
-    width: 15vh;
+    height: 25vh;
+    width: 25vh;
 }
