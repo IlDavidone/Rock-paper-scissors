@@ -11,20 +11,23 @@ let playerScore = 0;
 let computerScoreGame = 0;
 let userGuess;
 
-rockButton.addEventListener("click", () => {
+
+if(computerScoreGame < 5 && playerScore < 5){
+    rockButton.addEventListener("click", () => {
     userGuess = 1;
     comparation();
-});
+    });
 
-paperButton.addEventListener("click", () => {
+    paperButton.addEventListener("click", () => {
     userGuess = 2;
     comparation();
-});
+    });
 
-scissorsButton.addEventListener("click", () => {
+    scissorsButton.addEventListener("click", () => {
     userGuess = 3;
     comparation();
-});
+    });
+}
 
 function randomNumberGenerator() {
     return Math.random();
@@ -77,36 +80,46 @@ function comparation() {
     user = checkInputs();
     computer = computerResult();
 
+if(computerScoreGame < 5 && playerScore < 5){
     if(user === computer)  {
-        if(user == 1){
+        if(user == 1 && (playerScore < 5) || (computerScoreGame < 5)){
             infoButton.textContent = "You both selected Rock! Tie!"
         }
-        else if(user == 2){
+        else if(user == 2 && (playerScore < 5) || (computerScoreGame < 5)){
             infoButton.textContent = "You both selected Paper! Tie!"
         }
-        else{
+        else if(user == 3 && (playerScore < 5) || (computerScoreGame < 5)) {
             infoButton.textContent = "You both selected Scissors! Tie!"
         }
     }
     else if (user === 1 && computer === 3) {
-        console.log("you won!");
+        playerScore = playerScore + 1;
     }
     else if (user === 2 && computer === 1) {
-        console.log("you won!");
+        playerScore = playerScore + 1;
     }
     else if (user === 3 && computer === 2) {
-        console.log("you won!");
+        playerScore = playerScore + 1;
     }
     else if (user === 1 && computer === 2) {
-        console.log("you lost!");
+        computerScoreGame = computerScoreGame + 1;
     }
     else if (user === 2 && computer === 3) {
-        console.log("you lost!");
+        computerScoreGame = computerScoreGame + 1;
     }
     else if (user === 3 && computer === 1) {
-        console.log("you lost!");
+        computerScoreGame = computerScoreGame + 1;
+    }}
+
+    if(playerScore == 5) {
+        playerScore = 5;
+        infoButton.textContent = "You won!!!"
+    }
+    if(computerScoreGame == 5) {
+        computerScoreGame = 5;
+        infoButton.textContent = "You lost, better luck next time!"
     }
 
-    console.log("test");
-
+    humanScore.textContent = playerScore;
+    computerScore.textContent = computerScoreGame;
 }
