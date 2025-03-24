@@ -169,8 +169,17 @@ function comparation() {
 
 //nightmode activation
 
+let nightModeActive = 0;
+
 nightMode.addEventListener("click", () => {
-    imgRock
+  if(nightModeActive == 0) {
+    nightModeIcon.setAttribute("src", "Assets/moon-line.png");
+    nightModeActive = 1;
+  }
+  else if(nightModeActive == 1) {
+    nightModeIcon.setAttribute("src", "Assets/moon.png");
+    nightModeActive = 0;
+  }
     document.body.classList.toggle("background");
     title.classList.toggle("text-color");
     humanScore.classList.toggle("text-color");
