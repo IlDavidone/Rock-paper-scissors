@@ -9,6 +9,7 @@ const linkButton = document.querySelector(".link-button");
 const imgRock = document.querySelector(".img-rock");
 const imgPaper = document.querySelector(".img-paper");
 const imgScissors = document.querySelector(".img-scissors");
+const resetButton = document.querySelector(".reset-button");
 
 let playerScore = 0;
 let computerScoreGame = 0;
@@ -58,6 +59,18 @@ if(computerScoreGame < 5 && playerScore < 5){
         }
     });
 }
+
+resetButton.addEventListener("click", () => {
+    playerScore = 0;
+    computerScoreGame = 0;
+    humanScore.textContent = playerScore;
+    computerScore.textContent = computerScoreGame;
+    infoButton.textContent = "";
+});
+
+linkButton.addEventListener("click", () => {
+    location.href = "https://github.com/IlDavidone";
+});
 
 function resetButtonColors() {
     if(computerScoreGame < 5 && playerScore < 5){

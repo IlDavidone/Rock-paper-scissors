@@ -91,6 +91,29 @@ button {
     width: 25vh;
 }
 
+.reset {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+.reset-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.reset-button :active {
+    background-color: gainsboro;
+}
+
+.reset-button img {
+    height: 50px;
+    width: 50px;
+}
+
 .link-button img {
     height: 37px;
     length: 37px;
