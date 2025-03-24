@@ -6,27 +6,70 @@ const rockButton = document.querySelector(".rock-button");
 const paperButton = document.querySelector(".paper-button");
 const scissorsButton = document.querySelector(".scissors-button");
 const linkButton = document.querySelector(".link-button");
+const imgRock = document.querySelector(".img-rock");
+const imgPaper = document.querySelector(".img-paper");
+const imgScissors = document.querySelector(".img-scissors");
 
 let playerScore = 0;
 let computerScoreGame = 0;
 let userGuess;
+let userBool;
+
 
 
 if(computerScoreGame < 5 && playerScore < 5){
     rockButton.addEventListener("click", () => {
     userGuess = 1;
     comparation();
+    resetButtonColors();
+        if(userBool == true && (computerScoreGame < 5 && playerScore < 5)) {
+            rockButton.setAttribute("class", "right");
+            imgRock.setAttribute("class", "right");
+        }
+        else if(computerScoreGame < 5 && playerScore < 5) {
+            rockButton.setAttribute("class", "wrong");
+            imgRock.setAttribute("class", "wrong");
+        }
     });
 
     paperButton.addEventListener("click", () => {
     userGuess = 2;
     comparation();
+    resetButtonColors();
+        if(userBool == true && (computerScoreGame < 5 && playerScore < 5)) {
+            paperButton.setAttribute("class", "right");
+            imgPaper.setAttribute("class", "right");
+        }
+        else if(computerScoreGame < 5 && playerScore < 5) {
+            paperButton.setAttribute("class", "wrong");
+            imgPaper.setAttribute("class", "wrong");
+        }
     });
 
     scissorsButton.addEventListener("click", () => {
     userGuess = 3;
     comparation();
+    resetButtonColors();
+        if(userBool == true && (computerScoreGame < 5 && playerScore < 5)) {
+            scissorsButton.setAttribute("class", "right");
+            imgScissors.setAttribute("class", "right");
+         }
+         else if(computerScoreGame < 5 && playerScore < 5) {
+            scissorsButton.setAttribute("class", "wrong");
+            imgScissors.setAttribute("class", "wrong");
+        }
     });
+}
+
+function resetButtonColors() {
+    if(computerScoreGame < 5 && playerScore < 5){
+        rockButton.setAttribute("class", "neutral");
+        imgRock.setAttribute("class", "neutral");
+        paperButton.setAttribute("class", "neutral");
+        imgPaper.setAttribute("class", "neutral");
+        scissorsButton.setAttribute("class", "neutral");
+        imgScissors.setAttribute("class", "neutral");
+    }
 }
 
 function randomNumberGenerator() {
@@ -94,21 +137,27 @@ if(computerScoreGame < 5 && playerScore < 5){
     }
     else if (user === 1 && computer === 3) {
         playerScore = playerScore + 1;
+        userBool = true;
     }
     else if (user === 2 && computer === 1) {
         playerScore = playerScore + 1;
+        userBool = true;
     }
     else if (user === 3 && computer === 2) {
         playerScore = playerScore + 1;
+        userBool = true;
     }
     else if (user === 1 && computer === 2) {
         computerScoreGame = computerScoreGame + 1;
+        userBool = false;
     }
     else if (user === 2 && computer === 3) {
         computerScoreGame = computerScoreGame + 1;
+        userBool = false;
     }
     else if (user === 3 && computer === 1) {
         computerScoreGame = computerScoreGame + 1;
+        userBool = false;
     }}
 
     if(playerScore == 5) {

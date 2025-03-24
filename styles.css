@@ -10,6 +10,22 @@ h1 {
     margin-bottom: 12vh;
 }
 
+button {
+    padding: 0px;
+}
+
+.neutral {
+    background-color: aliceblue;
+}
+
+.right {
+    background-color: greenyellow;
+}
+
+.wrong {
+    background-color: crimson;
+}
+
 .header  {
     display: flex;
     justify-content: space-between;
@@ -59,13 +75,13 @@ h1 {
 }
 
 .game-area button {
-    background-color: white;
     border-radius: 2vh;
     border: 10px solid black;
 }
 
 
 .game-area img {
+    border-radius: 2vh;
     height: 25vh;
     width: 25vh;
 }
