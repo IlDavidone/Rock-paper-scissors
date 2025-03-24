@@ -16,6 +16,31 @@ button {
     padding: 0px;
 }
 
+@keyframes hover-button {
+    0% {background-color: aliceblue;}
+    50% {background-color: antiquewhite;}
+    100% {background-color: aliceblue;}
+}
+
+@keyframes hover-reset-button {
+    0% {background-color: aliceblue;}
+    25% {background-color: crimson;}
+    50% {background-color: aliceblue;}
+    75% {background-color: crimson;}
+    100% {background-color: aliceblue;}
+}
+
+@keyframes hover-link-button {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes mouseleave-link-button {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg)
+        scale(100%);}
+}
+
 .neutral {
     background-color: aliceblue;
 }
@@ -85,6 +110,12 @@ button {
     background-color: gainsboro;
 }
 
+.buttons :hover {
+    animation-name: hover-button;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
 .game-area img {
     border-radius: 2vh;
     height: 25vh;
@@ -109,19 +140,48 @@ button {
     background-color: gainsboro;
 }
 
+.reset-button :hover {
+    animation-name: hover-reset-button;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
 .reset-button img {
     height: 50px;
     width: 50px;
 }
 
+
 .link-button img {
     height: 37px;
-    length: 37px;
+    width: 37px;
 }
 
 .footer {
+    background-color: slategrey;
+    width: 100%;
     display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0;
+    gap: 10px;
 }
+
+.link-button {
+    display: flex;
+    align-self: center;
+    transition: transform 1s;
+}
+
+.link-button :hover {
+    animation-name: hover-link-button;
+    animation-duration: 1s;
+    scale: 125%;
+}
+
+.link-button :not(:hover) {
+    animation-name: mouseleave-link-button;
+    animation-duration: 1s;
+}
+
 /* Start of night mode css rules*/
