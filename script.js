@@ -10,6 +10,8 @@ const imgRock = document.querySelector(".img-rock");
 const imgPaper = document.querySelector(".img-paper");
 const imgScissors = document.querySelector(".img-scissors");
 const resetButton = document.querySelector(".reset-button");
+const title = document.querySelector(".title");
+const nightModeIcon = document.querySelector(".night-image");
 
 let playerScore = 0;
 let computerScoreGame = 0;
@@ -164,3 +166,17 @@ function comparation() {
   humanScore.textContent = playerScore;
   computerScore.textContent = computerScoreGame;
 }
+
+//nightmode activation
+
+nightMode.addEventListener("click", () => {
+    imgRock
+    document.body.classList.toggle("background");
+    title.classList.toggle("text-color");
+    humanScore.classList.toggle("text-color");
+    computerScore.classList.toggle("text-color");
+    infoButton.classList.toggle("text-color");
+    rockButton.classList.toggle("button-background");
+    paperButton.classList.toggle("button-background");
+    scissorsButton.classList.toggle("button-background");
+});
