@@ -1,3 +1,5 @@
+/*start of general and light mode css rules*/
+
 body {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -79,9 +81,24 @@ button {
     border: 10px solid black;
 }
 
+.buttons :active {
+    background-color: gainsboro;
+}
 
 .game-area img {
     border-radius: 2vh;
     height: 25vh;
     width: 25vh;
 }
+
+.link-button img {
+    height: 37px;
+    length: 37px;
+}
+
+.footer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+/* Start of night mode css rules*/

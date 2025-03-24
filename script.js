@@ -15,8 +15,6 @@ let computerScoreGame = 0;
 let userGuess;
 let userBool;
 
-
-
 if(computerScoreGame < 5 && playerScore < 5){
     rockButton.addEventListener("click", () => {
     userGuess = 1;
