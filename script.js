@@ -12,6 +12,8 @@ const imgScissors = document.querySelector(".img-scissors");
 const resetButton = document.querySelector(".reset-button");
 const title = document.querySelector(".title");
 const nightModeIcon = document.querySelector(".night-image");
+const restoreImage = document.querySelector(".restore-image");
+const rockWrapper = document.querySelector(".rock-wrapper");
 
 let playerScore = 0;
 let computerScoreGame = 0;
@@ -26,10 +28,11 @@ if (computerScoreGame < 5 && playerScore < 5) {
     comparation();
     resetButtonColors();
     if (userBool == true && computerScoreGame < 5 && playerScore < 5) {
-      rockButton.setAttribute("class", "right");
+      rockButton.setAttribute("id", "right");
       imgRock.setAttribute("class", "right");
-    } else if (computerScoreGame < 5 && playerScore < 5) {
-      rockButton.setAttribute("class", "wrong");
+      } 
+      else if (computerScoreGame < 5 && playerScore < 5) {
+      rockButton.setAttribute("id", "wrong");
       imgRock.setAttribute("class", "wrong");
     }
   });
@@ -39,10 +42,10 @@ if (computerScoreGame < 5 && playerScore < 5) {
     comparation();
     resetButtonColors();
     if (userBool == true && computerScoreGame < 5 && playerScore < 5) {
-      paperButton.setAttribute("class", "right");
+      paperButton.setAttribute("id", "right");
       imgPaper.setAttribute("class", "right");
     } else if (computerScoreGame < 5 && playerScore < 5) {
-      paperButton.setAttribute("class", "wrong");
+      paperButton.setAttribute("id", "wrong");
       imgPaper.setAttribute("class", "wrong");
     }
   });
@@ -52,10 +55,10 @@ if (computerScoreGame < 5 && playerScore < 5) {
     comparation();
     resetButtonColors();
     if (userBool == true && computerScoreGame < 5 && playerScore < 5) {
-      scissorsButton.setAttribute("class", "right");
+      scissorsButton.setAttribute("id", "right");
       imgScissors.setAttribute("class", "right");
     } else if (computerScoreGame < 5 && playerScore < 5) {
-      scissorsButton.setAttribute("class", "wrong");
+      scissorsButton.setAttribute("id", "wrong");
       imgScissors.setAttribute("class", "wrong");
     }
   });
@@ -75,14 +78,29 @@ linkButton.addEventListener("click", () => {
 });
 
 function resetButtonColors() {
-  if (computerScoreGame < 5 && playerScore < 5) {
-    rockButton.setAttribute("class", "neutral");
+  if ((computerScoreGame < 5 && playerScore < 5) && nightModeActive == 0) {
+    rockButton.setAttribute("id", "neutral");
     imgRock.setAttribute("class", "neutral");
-    paperButton.setAttribute("class", "neutral");
+    paperButton.setAttribute("id", "neutral");
     imgPaper.setAttribute("class", "neutral");
-    scissorsButton.setAttribute("class", "neutral");
+    scissorsButton.setAttribute("id", "neutral");
     imgScissors.setAttribute("class", "neutral");
   }
+
+if ((computerScoreGame < 5 && playerScore < 5) && nightModeActive == 1) {
+    rockButton.setAttribute("class", "buttons-night-mode");
+    imgRock.setAttribute("class", "images-night-mode");
+    paperButton.setAttribute("class", "buttons-night-mode");
+    imgPaper.setAttribute("class", "images-night-mode");
+    scissorsButton.setAttribute("class", "buttons-night-mode");
+    imgScissors.setAttribute("class", "images-night-mode");
+    rockButton.removeAttribute("id", "right");
+    paperButton.removeAttribute("id", "right");
+    scissorsButton.removeAttribute("id", "right");
+    rockButton.removeAttribute("id", "wrong");
+    paperButton.removeAttribute("id", "wrong");
+    scissorsButton.removeAttribute("id", "wrong");
+}
 }
 
 function randomNumberGenerator() {
@@ -172,20 +190,42 @@ function comparation() {
 let nightModeActive = 0;
 
 nightMode.addEventListener("click", () => {
+
+  //checking when to replace icons based on the actual state of nightmode
   if(nightModeActive == 0) {
     nightModeIcon.setAttribute("src", "Assets/moon-line.png");
+    imgRock.setAttribute("src", "Assets/hand-grab-night.png");
+    imgPaper.setAttribute("src", "Assets/hand-stop-night.png");
+    imgScissors.setAttribute("src", "Assets/hand-two-fingers-night.png");
+    imgScissors.classList.toggle("images-night-mode");
+    imgPaper.classList.toggle("images-night-mode");
+    imgRock.classList.toggle("images-night-mode");
     nightModeActive = 1;
   }
   else if(nightModeActive == 1) {
     nightModeIcon.setAttribute("src", "Assets/moon.png");
+    imgRock.setAttribute("src", "Assets/hand-grab.png");
+    imgPaper.setAttribute("src", "Assets/hand-stop.png");
+    imgScissors.setAttribute("src", "Assets/hand-two-fingers.png");
+    imgScissors.classList.toggle("images-night-mode");
+    imgRock.classList.toggle("images-night-mode");
+    imgPaper.classList.toggle("images-night-mode");
     nightModeActive = 0;
   }
-    document.body.classList.toggle("background");
-    title.classList.toggle("text-color");
-    humanScore.classList.toggle("text-color");
-    computerScore.classList.toggle("text-color");
-    infoButton.classList.toggle("text-color");
-    rockButton.classList.toggle("button-background");
-    paperButton.classList.toggle("button-background");
-    scissorsButton.classList.toggle("button-background");
+
+  //toggling nightmode css classes
+  document.body.classList.toggle("background");
+  title.classList.toggle("text-color");
+  humanScore.classList.toggle("text-color");
+  computerScore.classList.toggle("text-color");
+  infoButton.classList.toggle("text-color");
+  rockButton.classList.toggle("button-background");
+  paperButton.classList.toggle("button-background");
+  scissorsButton.classList.toggle("button-background");
+  rockButton.classList.toggle("game-buttons");
+  paperButton.classList.toggle("game-buttons");
+  scissorsButton.classList.toggle("game-buttons");
+  rockButton.classList.toggle("buttons-night-mode");
+  paperButton.classList.toggle("buttons-night-mode");
+  scissorsButton.classList.toggle("buttons-night-mode");
 });
