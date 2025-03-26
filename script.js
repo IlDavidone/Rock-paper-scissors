@@ -16,6 +16,8 @@ const restoreImage = document.querySelector(".restore-image");
 const rockWrapper = document.querySelector(".rock-wrapper");
 const buttons = document.querySelector(".buttons");
 const resetImage = document.querySelector(".restore-image");
+const footer = document.querySelector(".footer");
+const linkButtonImage = document.querySelector("link-button-image");
 
 let playerScore = 0;
 let computerScoreGame = 0;
@@ -239,4 +241,5 @@ nightMode.addEventListener("click", () => {
   paperButton.classList.toggle("buttons-night-mode");
   scissorsButton.classList.toggle("buttons-night-mode");
   resetButton.classList.toggle("reset-button-night-mode");
+  footer.classList.toggle("footer-night-mode");
 });
