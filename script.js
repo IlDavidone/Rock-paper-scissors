@@ -130,11 +130,11 @@ function computerResult() {
 function checkInputs() {
   let result;
 
-  if (userGuess === 1) {
+  if (userGuess == 1) {
     result = 1;
-  } else if (userGuess === 2) {
+  } else if (userGuess == 2) {
     result = 2;
-  } else if (userGuess === 3) {
+  } else if (userGuess == 3) {
     result = 3;
   }
 
@@ -146,12 +146,12 @@ function comparation() {
   computer = computerResult();
 
   if (computerScoreGame < 5 && playerScore < 5) {
-    if (user === computer) {
-      if ((user == 1 && playerScore < 5) || computerScoreGame < 5) {
+    if (user == computer) {
+      if ((user == 1 && playerScore < 5) || (user == 1 && computerScoreGame < 5)) {
         infoButton.textContent = "You both selected Rock! Tie!";
-      } else if ((user == 2 && playerScore < 5) || computerScoreGame < 5) {
+      } else if ((user == 2 && playerScore < 5) || (user == 1 && computerScoreGame < 5)) {
         infoButton.textContent = "You both selected Paper! Tie!";
-      } else if ((user == 3 && playerScore < 5) || computerScoreGame < 5) {
+      } else if ((user == 3 && playerScore < 5) || (user == 1 && computerScoreGame < 5)) {
         infoButton.textContent = "You both selected Scissors! Tie!";
       }
     } else if (user === 1 && computer === 3) {
